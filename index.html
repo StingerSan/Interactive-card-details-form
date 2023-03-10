@@ -14,27 +14,34 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
       rel="stylesheet" />
-    <link rel="stylesheet" href="style.scss" />
+    <link rel="stylesheet" href="/css/style.min.css" />
     <script src="script.js" defer></script>
     <title>Frontend Mentor | Interactive card details form</title>
   </head>
-  <body>
-    <header>
-      <div></div>
-      <div></div>
+  <body class="page">
+    <header class="header page__header">
+      <div class="header__card-back">
+        <p></p>
+      </div>
+      <div class="header__card-front">
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+      </div>
     </header>
-    <main>
-      <form action="">
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
-        <input type="text" />
-        <button></button>
+    <main class="main-content page__main-content">
+      <form action="" class="main-content__form">
+        <input type="text" class="main-content__card-name" />
+        <input type="text" class="main-content__card-number" />
+        <input type="text" class="main-content__card-month" />
+        <input type="text" class="main-content__card-year" />
+        <input type="text" class="main-content__card-cvc" />
+        <button class="main-content__button">Confirm</button>
       </form>
     </main>
-    <footer>
-      <div class="attribution">
+    <footer class="footer page__footer">
+      <div class="footer__about-author">
         Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
           >Frontend Mentor</a
