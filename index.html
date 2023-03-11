@@ -20,14 +20,27 @@
   </head>
   <body class="page">
     <header class="header page__header">
-      <div class="header__card-back">
-        <p></p>
-      </div>
-      <div class="header__card-front">
-        <p></p>
-        <p></p>
-        <p></p>
-        <p></p>
+      <div class="card">
+        <div class="card__back">
+          <img
+            src="images/bg-card-back.png"
+            alt="card back view"
+            class="card__back-view" />
+          <span class="card__cvc">0 0 0</span>
+        </div>
+        <div class="card__front">
+          <img src="images/card-logo.svg" alt="card logo" class="card__logo" />
+          <img
+            src="images/bg-card-front.png"
+            alt="card front view"
+            class="card__front-view" />
+          <h1 class="card__number">0000 0000 0000 0000</h1>
+          <div class="card__data-container">
+            <span class="card__name"></span>
+            <span class="card__month"></span>
+            <span class="card__year"></span>
+          </div>
+        </div>
       </div>
     </header>
     <main class="main-content page__main-content">
