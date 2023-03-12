@@ -36,30 +36,68 @@
             class="card__front-view" />
           <h1 class="card__number">0000 0000 0000 0000</h1>
           <div class="card__data-container">
-            <span class="card__name"></span>
-            <span class="card__month"></span>
-            <span class="card__year"></span>
+            <span class="card__name">Jane Appleseed</span>
+            <span class="card__date-info">
+              <span class="card__month">00</span>
+              <span>/</span>
+              <span class="card__year">00</span>
+            </span>
           </div>
         </div>
       </div>
     </header>
     <main class="main-content page__main-content">
       <form action="" class="main-content__form">
-        <input type="text" class="main-content__card-name" />
-        <input type="text" class="main-content__card-number" />
-        <input type="text" class="main-content__card-month" />
-        <input type="text" class="main-content__card-year" />
-        <input type="text" class="main-content__card-cvc" />
+        <div class="main-content__card-name-container">
+          <p>cardholder name</p>
+          <input
+            type="text"
+            class="main-content__card-name"
+            placeholder="e.g Jane Appleseed" />
+        </div>
+        <div class="main-content__card-number-container">
+          <p>card number</p>
+          <input
+            type="number"
+            placeholder="e.g 1234 5678 9123 000"
+            id="card-number"
+            class="main-content__card-number" />
+          <label for="card-number">Wrong format, numbers only</label>
+        </div>
+        <div class="main-content__date-container">
+          <div class="main-content__card-date-container">
+            <p>exp, date(mm/yy) cvc</p>
+            <input
+              type="number"
+              placeholder="MM"
+              id="card-date"
+              class="main-content__card-month" />
+            <input
+              type="number"
+              placeholder="YY"
+              id="card-date"
+              class="main-content__card-year" />
+            <label for="card-date">Can't be blank</label>
+          </div>
+          <div class="main-content__card-cvc-container">
+            <input
+              type="number"
+              placeholder="e.g 123"
+              id="card-cvc"
+              class="main-content__card-cvc" />
+            <label for="card-cvc">Can't be blank</label>
+          </div>
+        </div>
         <button class="main-content__button">Confirm</button>
       </form>
     </main>
-    <footer class="footer page__footer">
+    <!-- <footer class="footer page__footer">
       <div class="footer__about-author">
         Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
           >Frontend Mentor</a
         >. Coded by <a href="#">Your Name Here</a>.
       </div>
-    </footer>
+    </footer> -->
   </body>
 </html>

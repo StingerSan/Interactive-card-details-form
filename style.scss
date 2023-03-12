@@ -11,6 +11,7 @@ $input-error: hsl(0, 100%, 66%);
   box-sizing: border-box;
 }
 .page {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   font-family: "Space Grotesk", sans-serif;
@@ -65,4 +66,30 @@ $input-error: hsl(0, 100%, 66%);
     top: 5rem;
     left: 1.2rem;
   }
+  &__data-container {
+    width: 100%;
+    position: absolute;
+    top: 7.2rem;
+    display: flex;
+    gap: 4rem;
+    justify-content: space-around;
+    font-size: 0.7rem;
+    color: $white;
+  }
+  &__date-info {
+    display: flex;
+  }
+}
+
+.main-content {
+  height: 65vh;
+  &__form {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+label {
+  display: none;
 }
