@@ -49,14 +49,14 @@
     <main class="main-content page__main-content">
       <form action="" class="main-content__form">
         <div class="main-content__card-name-container">
-          <p>cardholder name</p>
+          <p>CARDHOLDER NAME</p>
           <input
             type="text"
             class="main-content__card-name"
             placeholder="e.g Jane Appleseed" />
         </div>
         <div class="main-content__card-number-container">
-          <p>card number</p>
+          <p>CARD NUMBER</p>
           <input
             type="number"
             placeholder="e.g 1234 5678 9123 000"
@@ -66,20 +66,23 @@
         </div>
         <div class="main-content__date-container">
           <div class="main-content__card-date-container">
-            <p>exp, date(mm/yy) cvc</p>
-            <input
-              type="number"
-              placeholder="MM"
-              id="card-date"
-              class="main-content__card-month" />
-            <input
-              type="number"
-              placeholder="YY"
-              id="card-date"
-              class="main-content__card-year" />
+            <p>EXP, DATE(MM/YY)</p>
+            <div class="main-content__card-date-wrap">
+              <input
+                type="number"
+                placeholder="MM"
+                id="card-date"
+                class="main-content__card-month" />
+              <input
+                type="number"
+                placeholder="YY"
+                id="card-date"
+                class="main-content__card-year" />
+            </div>
             <label for="card-date">Can't be blank</label>
           </div>
           <div class="main-content__card-cvc-container">
+            <p>CVC</p>
             <input
               type="number"
               placeholder="e.g 123"
