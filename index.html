@@ -61,6 +61,8 @@
             type="number"
             placeholder="e.g 1234 5678 9123 000"
             id="card-number"
+            minlength="16"
+            maxlength="16"
             class="main-content__card-number" />
           <label for="card-number">Wrong format, numbers only</label>
         </div>
@@ -72,11 +74,15 @@
                 type="number"
                 placeholder="MM"
                 id="card-date"
+                minlength="2"
+                maxlength="2"
                 class="main-content__card-month" />
               <input
                 type="number"
                 placeholder="YY"
                 id="card-date"
+                minlength="2"
+                maxlength="2"
                 class="main-content__card-year" />
             </div>
             <label for="card-date">Can't be blank</label>
@@ -87,12 +93,23 @@
               type="number"
               placeholder="e.g 123"
               id="card-cvc"
+              minlength="3"
+              maxlength="3"
               class="main-content__card-cvc" />
             <label for="card-cvc">Can't be blank</label>
           </div>
         </div>
-        <button class="main-content__button">Confirm</button>
+        <button type="submit" class="main-content__button">Confirm</button>
       </form>
+      <div class="submited">
+        <img
+          src="images/icon-complete.svg"
+          alt="checkmark icon"
+          class="submited__checkmark" />
+        <h1 class="submited__thanks">THANK YOU!</h1>
+        <p class="submited__details">We've added your card details</p>
+        <button class="submited__button">Continue</button>
+      </div>
     </main>
     <!-- <footer class="footer page__footer">
       <div class="footer__about-author">
