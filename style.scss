@@ -134,17 +134,34 @@ $input-error: hsl(0, 100%, 66%);
   }
 }
 
-label {
+.error {
   display: none;
+  &--active {
+    display: block;
+    color: $input-error;
+    font-size: 0.8rem;
+  }
 }
 
 p {
   margin-bottom: 0.5rem;
 }
 
-input::placeholder {
-  color: $light-greyish-violet;
-  font-weight: 600;
+.user-data {
+  &:focus {
+    outline: none;
+    background: linear-gradient(white, white) padding-box,
+      $active-input-border border-box;
+    border-radius: 10px;
+    border: 1px solid transparent;
+  }
+  &::placeholder {
+    color: $light-greyish-violet;
+    font-weight: 600;
+  }
+  &--active {
+    border: 1px solid $input-error;
+  }
 }
 
 .submited {
