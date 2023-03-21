@@ -208,6 +208,22 @@ p {
     margin: 0;
   }
 
+  .card {
+    transform: translate(15rem, 20rem);
+    &__front {
+      transform: translate(-5rem, -15rem);
+    }
+    &__front-view {
+      width: 480px;
+    }
+    &__back {
+      transform: translate(2rem, 5rem);
+    }
+    &__back-view {
+      width: 480px;
+    }
+  }
+
   .main-content {
     width: 100%;
     height: 100vh;
