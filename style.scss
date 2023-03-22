@@ -211,13 +211,26 @@ p {
   .card {
     transform: translate(15rem, 20rem);
     &__front {
-      transform: translate(-5rem, -15rem);
+      transform: translate(-5rem, -25rem);
+    }
+    &__logo {
+      width: 6rem;
+      top: 2rem;
+      left: 2rem;
+    }
+    &__number {
+      font-size: 2.3rem;
+      top: 9.2rem;
+      left: 2rem;
+    }
+    &__data-container {
+      top: 9rem;
     }
     &__front-view {
       width: 480px;
     }
     &__back {
-      transform: translate(2rem, 5rem);
+      transform: translate(2rem, 10rem);
     }
     &__back-view {
       width: 480px;
