@@ -40,8 +40,9 @@ $input-error: hsl(0, 100%, 66%);
   }
   &__cvc {
     position: absolute;
-    top: 3.95rem;
-    left: 12rem;
+    top: 4.1rem;
+    left: 12.5rem;
+    font-size: 0.7rem;
     color: $white;
   }
   &__front {
@@ -224,13 +225,21 @@ p {
       left: 2rem;
     }
     &__data-container {
-      top: 9rem;
+      top: unset;
+      bottom: 2rem;
+      font-size: 1.1rem;
+      gap: 10rem;
     }
     &__front-view {
       width: 480px;
     }
     &__back {
       transform: translate(2rem, 10rem);
+    }
+    &__cvc {
+      top: 7.5rem;
+      left: 23.5rem;
+      font-size: 1.1rem;
     }
     &__back-view {
       width: 480px;
