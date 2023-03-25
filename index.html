@@ -63,6 +63,7 @@
             id="card-number"
             minlength="16"
             maxlength="16"
+            required
             class="user-data main-content__card-number" />
           <label class="error" for="card-number"
             >Wrong format, numbers only</label
@@ -78,6 +79,7 @@
                 id="card-date"
                 minlength="2"
                 maxlength="2"
+                required
                 class="user-data main-content__card-month" />
               <input
                 type="number"
@@ -85,6 +87,7 @@
                 id="card-date"
                 minlength="2"
                 maxlength="2"
+                required
                 class="user-data main-content__card-year" />
             </div>
             <label class="error" for="card-date">Can't be blank</label>
@@ -110,7 +113,7 @@
           class="submited__checkmark" />
         <h1 class="submited__thanks">THANK YOU!</h1>
         <p class="submited__details">We've added your card details</p>
-        <button class="submited__button">Continue</button>
+        <button type="submit" class="submited__button">Continue</button>
       </div>
     </main>
     <!-- <footer class="footer page__footer">

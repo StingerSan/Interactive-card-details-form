@@ -213,6 +213,7 @@ p {
     transform: translate(15rem, 20rem);
     &__front {
       transform: translate(-5rem, -25rem);
+      pointer-events: none;
     }
     &__logo {
       width: 6rem;
@@ -235,6 +236,7 @@ p {
     }
     &__back {
       transform: translate(2rem, 10rem);
+      pointer-events: none;
     }
     &__cvc {
       top: 7.5rem;
@@ -261,6 +263,9 @@ p {
       width: 25rem;
       padding: 1rem 1rem;
       font-size: 1.2rem;
+      &:hover {
+        cursor: pointer;
+      }
     }
     &__date-container {
       width: 25rem;
@@ -275,10 +280,16 @@ p {
       margin-right: 0.53rem;
       padding: 1rem 1rem;
       font-size: 1.2rem;
+      &:hover {
+        cursor: pointer;
+      }
     }
     &__card-cvc {
       padding: 1rem 1rem;
       font-size: 1.2rem;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 
@@ -305,6 +316,9 @@ p {
       width: 25rem;
       padding: 1rem 1rem;
       font-size: 1.2rem;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }
