@@ -24,7 +24,7 @@ $input-error: hsl(0, 100%, 66%);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 
 .card {
@@ -40,8 +40,9 @@ $input-error: hsl(0, 100%, 66%);
   }
   &__cvc {
     position: absolute;
-    top: 3.95rem;
-    left: 12rem;
+    top: 4.1rem;
+    left: 12.5rem;
+    font-size: 0.7rem;
     color: $white;
   }
   &__front {
@@ -88,63 +89,87 @@ $input-error: hsl(0, 100%, 66%);
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    align-items: center;
     &--active {
       display: none !important;
     }
   }
   &__card-name,
   &__card-number {
-    width: 100%;
-    padding: 10px 10px;
-    border-radius: 10px;
+    width: 20rem;
+    padding: 0.63rem 0.63rem;
+    border-radius: 0.63rem;
     border: 1px solid $light-greyish-violet;
   }
   &__date-container {
     display: flex;
+    justify-content: space-evenly;
   }
   &__card-date-wrap {
     display: flex;
+    flex-wrap: wrap;
   }
   &__card-month,
   &__card-year {
-    width: 40%;
-    margin-right: 1rem;
-    padding: 10px 10px;
-    border-radius: 10px;
+    width: 4rem;
+    margin-right: 0.7rem;
+    padding: 0.63rem 0.63rem;
+    border-radius: 0.63rem;
     border: 1px solid $light-greyish-violet;
   }
   &__card-cvc-container {
     width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
   &__card-cvc {
-    padding: 10px 10px;
-    border-radius: 10px;
+    padding: 0.63rem 0.63rem;
+    border-radius: 0.63rem;
     border: 1px solid $light-greyish-violet;
   }
   &__button {
-    padding: 10px 10px;
-    border-radius: 10px;
+    width: 20rem;
+    padding: 0.63rem 0.63rem;
+    border-radius: 0.63rem;
     color: $white;
     background-color: $very-dark-violet;
     border: none;
   }
 }
 
-label {
-  display: none;
+.error {
+  visibility: hidden;
+  display: block;
+  height: 17px;
+  &--active {
+    visibility: visible;
+    display: block;
+    color: $input-error;
+    font-size: 0.8rem;
+  }
 }
 
 p {
   margin-bottom: 0.5rem;
 }
 
-input::placeholder {
-  color: $light-greyish-violet;
-  font-weight: 600;
+.user-data {
+  &:focus {
+    outline: none;
+    background: linear-gradient(white, white) padding-box,
+      $active-input-border border-box;
+    border-radius: 10px;
+    border: 1px solid transparent;
+  }
+  &::placeholder {
+    color: $light-greyish-violet;
+    font-weight: 600;
+  }
+  &--active {
+    border: 1px solid $input-error;
+  }
 }
 
 .submited {
@@ -164,11 +189,136 @@ input::placeholder {
     color: $dark-greyish-violet;
   }
   &__button {
-    width: 100%;
-    padding: 10px 10px;
-    border-radius: 10px;
+    width: 20rem;
+    padding: 0.63rem 0.63rem;
+    border-radius: 0.63rem;
     color: $white;
     background-color: $very-dark-violet;
     border: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .page {
+    flex-direction: row;
+  }
+
+  .header {
+    width: 45%;
+    height: 100vh;
+    margin: 0;
+  }
+
+  .card {
+    transform: translate(15rem, 20rem);
+    &__front {
+      transform: translate(-5rem, -25rem);
+      pointer-events: none;
+    }
+    &__logo {
+      width: 6rem;
+      top: 2rem;
+      left: 2rem;
+    }
+    &__number {
+      font-size: 2.3rem;
+      top: 9.2rem;
+      left: 2rem;
+    }
+    &__data-container {
+      top: unset;
+      bottom: 2rem;
+      font-size: 1.1rem;
+      gap: 10rem;
+    }
+    &__front-view {
+      width: 480px;
+    }
+    &__back {
+      transform: translate(2rem, 10rem);
+      pointer-events: none;
+    }
+    &__cvc {
+      top: 7.5rem;
+      left: 23.5rem;
+      font-size: 1.1rem;
+    }
+    &__back-view {
+      width: 480px;
+    }
+  }
+
+  .main-content {
+    width: 100%;
+    height: 100vh;
+    padding: 16.5rem;
+    &__form {
+      &--active {
+        display: none !important;
+      }
+    }
+    &__card-name,
+    &__card-number,
+    &__button {
+      width: 25rem;
+      padding: 1rem 1rem;
+      font-size: 1.2rem;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    &__date-container {
+      width: 25rem;
+      justify-content: space-between;
+    }
+    &__card-date-wrap {
+      flex-wrap: nowrap;
+    }
+    &__card-month,
+    &__card-year {
+      width: 5.2rem;
+      margin-right: 0.53rem;
+      padding: 1rem 1rem;
+      font-size: 1.2rem;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    &__card-cvc {
+      padding: 1rem 1rem;
+      font-size: 1.2rem;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .submited {
+    display: none;
+    &--active {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+    }
+    &__checkmark {
+      width: 7rem;
+    }
+    &__thanks {
+      font-size: 2.5rem;
+    }
+    &__details {
+      font-size: 1.2rem;
+    }
+    &__button {
+      width: 25rem;
+      padding: 1rem 1rem;
+      font-size: 1.2rem;
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 }

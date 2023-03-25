@@ -52,7 +52,7 @@
           <p>CARDHOLDER NAME</p>
           <input
             type="text"
-            class="main-content__card-name"
+            class="user-data main-content__card-name"
             placeholder="e.g Jane Appleseed" />
         </div>
         <div class="main-content__card-number-container">
@@ -63,8 +63,11 @@
             id="card-number"
             minlength="16"
             maxlength="16"
-            class="main-content__card-number" />
-          <label for="card-number">Wrong format, numbers only</label>
+            required
+            class="user-data main-content__card-number" />
+          <label class="error" for="card-number"
+            >Wrong format, numbers only</label
+          >
         </div>
         <div class="main-content__date-container">
           <div class="main-content__card-date-container">
@@ -76,16 +79,18 @@
                 id="card-date"
                 minlength="2"
                 maxlength="2"
-                class="main-content__card-month" />
+                required
+                class="user-data main-content__card-month" />
               <input
                 type="number"
                 placeholder="YY"
                 id="card-date"
                 minlength="2"
                 maxlength="2"
-                class="main-content__card-year" />
+                required
+                class="user-data main-content__card-year" />
             </div>
-            <label for="card-date">Can't be blank</label>
+            <label class="error" for="card-date">Can't be blank</label>
           </div>
           <div class="main-content__card-cvc-container">
             <p>CVC</p>
@@ -95,8 +100,8 @@
               id="card-cvc"
               minlength="3"
               maxlength="3"
-              class="main-content__card-cvc" />
-            <label for="card-cvc">Can't be blank</label>
+              class="user-data main-content__card-cvc" />
+            <label class="error" for="card-cvc">Can't be blank</label>
           </div>
         </div>
         <button type="submit" class="main-content__button">Confirm</button>
@@ -108,7 +113,7 @@
           class="submited__checkmark" />
         <h1 class="submited__thanks">THANK YOU!</h1>
         <p class="submited__details">We've added your card details</p>
-        <button class="submited__button">Continue</button>
+        <button type="submit" class="submited__button">Continue</button>
       </div>
     </main>
     <!-- <footer class="footer page__footer">
