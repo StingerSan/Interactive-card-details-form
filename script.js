@@ -1,4 +1,4 @@
-// Preparw required card elements //
+// Prepare required card elements //
 const cardName = document.querySelector(".card__name");
 const cardNumber = document.querySelector(".card__number");
 const cardMonth = document.querySelector(".card__month");
@@ -13,3 +13,28 @@ const inputCardDate = document.querySelectorAll(
 );
 const inputCardCvc = document.getElementById("card-cvc");
 const confirmBtn = document.getElementById("confirm-btn");
+const errorMessage = document.querySelectorAll(".error");
+
+// Default values//
+const defaultCardNumber = cardNumber.textContent;
+const defaultCardName = cardName.textContent;
+const defaultCardMonth = cardMonth.textContent;
+const defaultCardYear = cardYear.textContent;
+const defaultCardCvc = cardCvc.textContent;
+
+//Prepare vent listeners//
+inputCardNumber.addEventListener("input", addCardNumber);
+inputCardName.addEventListener("input", addCardName);
+
+//Functions//
+
+function addCardName(e) {
+  cardName.textContent = e.target.value;
+  if (e.target.value === "") {
+    cardName.textContent = defaultCardName;
+  }
+}
+
+function addCardNumber(e) {
+  cardNumber.textContent = e.target.value;
+}

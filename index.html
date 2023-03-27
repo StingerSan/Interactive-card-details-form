@@ -60,6 +60,7 @@
           <p>CARD NUMBER</p>
           <input
             type="number"
+            oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0,this.maxLength)"
             placeholder="e.g 1234 5678 9123 000"
             id="card-number"
             minlength="16"
@@ -76,6 +77,7 @@
             <div class="main-content__card-date-wrap">
               <input
                 type="number"
+                oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0,this.maxLength)"
                 placeholder="MM"
                 id="card-date"
                 minlength="2"
@@ -84,6 +86,7 @@
                 class="user-data main-content__card-month" />
               <input
                 type="number"
+                oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0,this.maxLength)"
                 placeholder="YY"
                 id="card-date"
                 minlength="2"
