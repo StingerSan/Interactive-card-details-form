@@ -54,7 +54,9 @@
             type="text"
             class="user-data main-content__card-name"
             id="card-name"
+            maxlength="30"
             placeholder="e.g Jane Appleseed" />
+          <label class="error" for="card-name">Can't be blank!</label>
         </div>
         <div class="main-content__card-number-container">
           <p>CARD NUMBER</p>
@@ -67,9 +69,7 @@
             maxlength="16"
             required
             class="user-data main-content__card-number" />
-          <label class="error" for="card-number"
-            >Wrong format, numbers only</label
-          >
+          <label class="error" for="card-number">Can't be blank!</label>
         </div>
         <div class="main-content__date-container">
           <div class="main-content__card-date-container">
@@ -94,7 +94,7 @@
                 required
                 class="user-data main-content__card-year" />
             </div>
-            <label class="error" for="card-date">Can't be blank</label>
+            <label class="error" for="card-date">Can't be blank!</label>
           </div>
           <div class="main-content__card-cvc-container">
             <p>CVC</p>
@@ -105,7 +105,7 @@
               minlength="3"
               maxlength="3"
               class="user-data main-content__card-cvc" />
-            <label class="error" for="card-cvc">Can't be blank</label>
+            <label class="error" for="card-cvc">Can't be blank!</label>
           </div>
         </div>
         <button type="submit" id="confirm-btn" class="main-content__button">

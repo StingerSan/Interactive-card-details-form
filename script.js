@@ -23,14 +23,19 @@ const defaultCardYear = cardYear.textContent;
 const defaultCardCvc = cardCvc.textContent;
 
 //Prepare vent listeners//
-inputCardNumber.addEventListener("input", addCardNumber);
-inputCardName.addEventListener("input", addCardName);
+inputCardNumber.addEventListener("keyup", addCardNumber);
+inputCardName.addEventListener("change", addCardName);
+inputCardName.addEventListener("keyup", addCardName);
 
 //Functions//
 
 function addCardName(e) {
-  cardName.textContent = e.target.value;
-  if (e.target.value === "") {
+  const regex = /^[A-Za-z]{0,30}(\s[A-Za-z]{0,30})?$/;
+  const inputValue = e.target.value;
+  if (regex.test(inputValue)) {
+    cardName.textContent = inputValue;
+  }
+  if (inputValue === "") {
     cardName.textContent = defaultCardName;
   }
 }
