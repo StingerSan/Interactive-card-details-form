@@ -23,23 +23,35 @@ const defaultCardYear = cardYear.textContent;
 const defaultCardCvc = cardCvc.textContent;
 
 //Prepare vent listeners//
-inputCardNumber.addEventListener("keyup", addCardNumber);
+inputCardNumber.addEventListener("input", addCardNumber);
 inputCardName.addEventListener("change", addCardName);
 inputCardName.addEventListener("keyup", addCardName);
 
 //Functions//
 
 function addCardName(e) {
-  const regex = /^[A-Za-z]{0,30}(\s[A-Za-z]{0,30})?$/;
+  const regex = /[a-zA-Z]+/;
   const inputValue = e.target.value;
   if (regex.test(inputValue)) {
+    inputCardName.classList.remove("user-data--active");
+    errorMessage[0].classList.remove("error--active");
     cardName.textContent = inputValue;
   }
   if (inputValue === "") {
+    inputCardName.classList.add("user-data--active");
+    errorMessage[0].classList.add("error--active");
     cardName.textContent = defaultCardName;
   }
 }
 
 function addCardNumber(e) {
-  cardNumber.textContent = e.target.value;
+  const inputValue = e.target.value;
+  cardNumber.textContent = inputValue.replace(/\d{4}(?=.)/g, "$& ");
+  inputCardNumber.classList.remove("user-data--active");
+  errorMessage[1].classList.remove("error--active");
+  if (inputValue === "") {
+    inputCardNumber.classList.add("user-data--active");
+    errorMessage[1].classList.add("error--active");
+    cardNumber.textContent = defaultCardNumber;
+  }
 }
