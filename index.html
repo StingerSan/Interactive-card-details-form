@@ -100,6 +100,7 @@
             <p>CVC</p>
             <input
               type="number"
+              oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0,this.maxLength)"
               placeholder="e.g 123"
               id="card-cvc"
               minlength="3"
