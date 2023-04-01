@@ -6,6 +6,7 @@ const cardYear = document.querySelector(".card__year");
 const cardCvc = document.querySelector(".card__cvc");
 
 // Prepare required Card form elements//
+const cardInputDetails = document.querySelector(".main-content__form");
 const inputCardName = document.getElementById("card-name");
 const inputCardNumber = document.getElementById("card-number");
 const inputCardDate = document.querySelectorAll(
@@ -23,6 +24,7 @@ const defaultCardYear = cardYear.textContent;
 const defaultCardCvc = cardCvc.textContent;
 
 //Prepare vent listeners//
+confirmBtn.addEventListener("click", submitCardInfo);
 inputCardNumber.addEventListener("input", addCardNumber);
 inputCardName.addEventListener("change", addCardName);
 inputCardName.addEventListener("keyup", addCardName);
@@ -90,5 +92,30 @@ function setCvcNumber(e) {
     inputCardCvc.classList.add("user-data--active");
     errorMessage[3].classList.add("error--active");
     cardCvc.textContent = defaultCardCvc;
+  }
+}
+
+function submitCardInfo(e) {
+  e.preventDefault();
+  let inputsFilled = true; // zmienna przechowująca informację o tym, czy inputy są wypełnione
+
+  if (!addCardName({ target: inputCardName })) {
+    inputsFilled = false;
+  }
+  if (!addCardNumber({ target: inputCardNumber })) {
+    inputsFilled = false;
+  }
+  if (!setExpDate({ target: inputCardDate[0] })) {
+    inputsFilled = false;
+  }
+  if (!setExpDate({ target: inputCardDate[1] })) {
+    inputsFilled = false;
+  }
+  if (!setCvcNumber({ target: inputCardCvc })) {
+    inputsFilled = false;
+  }
+
+  if (inputsFilled) {
+    cardInputDetails.classList.add("main-content__form--active");
   }
 }
