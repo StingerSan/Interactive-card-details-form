@@ -5,8 +5,8 @@ const cardMonth = document.querySelector(".card__month");
 const cardYear = document.querySelector(".card__year");
 const cardCvc = document.querySelector(".card__cvc");
 
-// Prepare required Card form elements//
-const cardInputDetails = document.querySelector(".main-content__form");
+// Prepare required Card form elements //
+const cardInputDetails = document.getElementById("card-details");
 const inputCardName = document.getElementById("card-name");
 const inputCardNumber = document.getElementById("card-number");
 const inputCardDate = document.querySelectorAll(
@@ -16,7 +16,10 @@ const inputCardCvc = document.getElementById("card-cvc");
 const confirmBtn = document.getElementById("confirm-btn");
 const errorMessage = document.querySelectorAll(".error");
 
-// Default values//
+// Submited component //
+const submitedPage = document.getElementById("submited-component");
+
+// Default card values //
 const defaultCardNumber = cardNumber.textContent;
 const defaultCardName = cardName.textContent;
 const defaultCardMonth = cardMonth.textContent;
@@ -37,13 +40,9 @@ function addCardName(e) {
   const regex = /^[a-zA-Z ]+$/;
   const inputValue = e.target.value;
   if (regex.test(inputValue)) {
-    inputCardName.classList.remove("user-data--active");
-    errorMessage[0].classList.remove("error--active");
     cardName.textContent = inputValue;
   }
   if (inputValue === "") {
-    inputCardName.classList.add("user-data--active");
-    errorMessage[0].classList.add("error--active");
     cardName.textContent = defaultCardName;
   }
 }
@@ -51,11 +50,7 @@ function addCardName(e) {
 function addCardNumber(e) {
   const inputValue = e.target.value;
   cardNumber.textContent = inputValue.replace(/\d{4}(?=.)/g, "$& ");
-  inputCardNumber.classList.remove("user-data--active");
-  errorMessage[1].classList.remove("error--active");
   if (inputValue === "") {
-    inputCardNumber.classList.add("user-data--active");
-    errorMessage[1].classList.add("error--active");
     cardNumber.textContent = defaultCardNumber;
   }
 }
@@ -63,59 +58,79 @@ function addCardNumber(e) {
 function setExpDate(e) {
   const inputValue = e.target.value;
   const targetElement = e.target;
-  targetElement.classList.remove("user-data--active");
-  errorMessage[2].classList.remove("error--active");
   if (targetElement === inputCardDate[0]) {
     cardMonth.textContent = inputValue;
   }
   if (targetElement === inputCardDate[1]) {
     cardYear.textContent = inputValue;
   }
-  if (inputValue === "") {
-    targetElement.classList.add("user-data--active");
-    errorMessage[2].classList.add("error--active");
-    if (targetElement === inputCardDate[0]) {
-      cardMonth.textContent = defaultCardMonth;
-    }
-    if (targetElement === inputCardDate[1]) {
-      cardYear.textContent = defaultCardYear;
-    }
+  if (inputValue === "" && targetElement === inputCardDate[0]) {
+    cardMonth.textContent = defaultCardMonth;
+  }
+  if (inputValue === "" && targetElement === inputCardDate[1]) {
+    cardYear.textContent = defaultCardYear;
   }
 }
 
 function setCvcNumber(e) {
   const inputValue = e.target.value;
   cardCvc.textContent = inputValue.replace(/\d(?=\d)/g, "$& ");
-  inputCardCvc.classList.remove("user-data--active");
-  errorMessage[3].classList.remove("error--active");
   if (inputValue === "") {
-    inputCardCvc.classList.add("user-data--active");
-    errorMessage[3].classList.add("error--active");
     cardCvc.textContent = defaultCardCvc;
   }
 }
 
 function submitCardInfo(e) {
   e.preventDefault();
-  let inputsFilled = true; // zmienna przechowująca informację o tym, czy inputy są wypełnione
-
-  if (!addCardName({ target: inputCardName })) {
-    inputsFilled = false;
-  }
-  if (!addCardNumber({ target: inputCardNumber })) {
-    inputsFilled = false;
-  }
-  if (!setExpDate({ target: inputCardDate[0] })) {
-    inputsFilled = false;
-  }
-  if (!setExpDate({ target: inputCardDate[1] })) {
-    inputsFilled = false;
-  }
-  if (!setCvcNumber({ target: inputCardCvc })) {
-    inputsFilled = false;
+  if (inputCardName.value !== "") {
+    inputCardName.classList.remove("user-data--active");
+    errorMessage[0].classList.remove("error--active");
+  } else {
+    inputCardName.classList.add("user-data--active");
+    errorMessage[0].classList.add("error--active");
   }
 
-  if (inputsFilled) {
+  if (inputCardNumber.value !== "") {
+    inputCardNumber.classList.remove("user-data--active");
+    errorMessage[1].classList.remove("error--active");
+  } else {
+    inputCardNumber.classList.add("user-data--active");
+    errorMessage[1].classList.add("error--active");
+  }
+
+  if (inputCardDate[0].value !== "") {
+    inputCardDate[0].classList.remove("user-data--active");
+    errorMessage[2].classList.remove("error--active");
+  } else {
+    inputCardDate[0].classList.add("user-data--active");
+    errorMessage[2].classList.add("error--active");
+  }
+
+  if (inputCardDate[1].value !== "") {
+    inputCardDate[1].classList.remove("user-data--active");
+    errorMessage[2].classList.remove("error--active");
+  } else {
+    inputCardDate[1].classList.add("user-data--active");
+    errorMessage[2].classList.add("error--active");
+  }
+
+  if (inputCardCvc.value !== "") {
+    inputCardCvc.classList.remove("user-data--active");
+    errorMessage[3].classList.remove("error--active");
+  } else {
+    inputCardCvc.classList.add("user-data--active");
+    errorMessage[3].classList.add("error--active");
+  }
+
+  if (
+    inputCardName.value &&
+    inputCardNumber.value &&
+    inputCardNumber.value.length === 16 &&
+    inputCardDate[0].value &&
+    inputCardDate[1].value &&
+    inputCardCvc.value
+  ) {
     cardInputDetails.classList.add("main-content__form--active");
+    submitedPage.classList.add("submited--active");
   }
 }
