@@ -47,27 +47,30 @@
       </div>
     </header>
     <main class="main-content page__main-content">
-      <form action="" class="main-content__form">
+      <form action="" id="card-details" class="main-content__form">
         <div class="main-content__card-name-container">
           <p>CARDHOLDER NAME</p>
           <input
             type="text"
             class="user-data main-content__card-name"
+            id="card-name"
+            maxlength="30"
+            required
             placeholder="e.g Jane Appleseed" />
+          <label class="error" for="card-name">Can't be blank!</label>
         </div>
         <div class="main-content__card-number-container">
           <p>CARD NUMBER</p>
           <input
             type="number"
+            oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0,this.maxLength)"
             placeholder="e.g 1234 5678 9123 000"
             id="card-number"
             minlength="16"
             maxlength="16"
             required
             class="user-data main-content__card-number" />
-          <label class="error" for="card-number"
-            >Wrong format, numbers only</label
-          >
+          <label class="error" for="card-number">Can't be blank!</label>
         </div>
         <div class="main-content__date-container">
           <div class="main-content__card-date-container">
@@ -75,6 +78,7 @@
             <div class="main-content__card-date-wrap">
               <input
                 type="number"
+                oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0,this.maxLength)"
                 placeholder="MM"
                 id="card-date"
                 minlength="2"
@@ -83,6 +87,7 @@
                 class="user-data main-content__card-month" />
               <input
                 type="number"
+                oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0,this.maxLength)"
                 placeholder="YY"
                 id="card-date"
                 minlength="2"
@@ -90,23 +95,27 @@
                 required
                 class="user-data main-content__card-year" />
             </div>
-            <label class="error" for="card-date">Can't be blank</label>
+            <label class="error" for="card-date">Can't be blank!</label>
           </div>
           <div class="main-content__card-cvc-container">
             <p>CVC</p>
             <input
               type="number"
+              oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0,this.maxLength)"
               placeholder="e.g 123"
               id="card-cvc"
               minlength="3"
               maxlength="3"
+              required
               class="user-data main-content__card-cvc" />
-            <label class="error" for="card-cvc">Can't be blank</label>
+            <label class="error" for="card-cvc">Can't be blank!</label>
           </div>
         </div>
-        <button type="submit" class="main-content__button">Confirm</button>
+        <button type="submit" id="confirm-btn" class="main-content__button">
+          Confirm
+        </button>
       </form>
-      <div class="submited">
+      <div class="submited" id="submited-component">
         <img
           src="images/icon-complete.svg"
           alt="checkmark icon"
