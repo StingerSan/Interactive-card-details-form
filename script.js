@@ -18,6 +18,7 @@ const errorMessage = document.querySelectorAll(".error");
 
 // Submited component //
 const submitedPage = document.getElementById("submited-component");
+const resetBtn = document.getElementById("reset-btn");
 
 // Default card values //
 const defaultCardNumber = cardNumber.textContent;
@@ -28,6 +29,7 @@ const defaultCardCvc = cardCvc.textContent;
 
 //Prepare vent listeners//
 confirmBtn.addEventListener("click", submitCardInfo);
+resetBtn.addEventListener("click", reset);
 inputCardNumber.addEventListener("input", addCardNumber);
 inputCardName.addEventListener("change", addCardName);
 inputCardName.addEventListener("keyup", addCardName);
@@ -133,4 +135,21 @@ function submitCardInfo(e) {
     cardInputDetails.classList.add("main-content__form--active");
     submitedPage.classList.add("submited--active");
   }
+}
+
+function reset(e) {
+  e.preventDefault();
+  cardName.textContent = defaultCardName;
+  cardNumber.textContent = defaultCardNumber;
+  cardMonth.textContent = defaultCardMonth;
+  cardYear.textContent = defaultCardYear;
+  cardCvc.textContent = defaultCardCvc;
+  inputCardName.value = "";
+  inputCardNumber.value = "";
+  inputCardNumber.value = "";
+  inputCardDate[0].value = "";
+  inputCardDate[1].value = "";
+  inputCardCvc.value = "";
+  cardInputDetails.classList.remove("main-content__form--active");
+  submitedPage.classList.remove("submited--active");
 }
