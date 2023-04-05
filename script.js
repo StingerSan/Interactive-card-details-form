@@ -1,3 +1,7 @@
+const start = () => {
+  prepareEvents();
+};
+
 // Prepare required card elements //
 const cardName = document.querySelector(".card__name");
 const cardNumber = document.querySelector(".card__number");
@@ -18,8 +22,15 @@ const errorMessage = document.querySelectorAll(".error");
 const submitedPage = document.getElementById("submited-component");
 const resetBtn = document.getElementById("reset-btn");
 
+// Default card values //
+const defaultCardNumber = cardNumber.textContent;
+const defaultCardName = cardName.textContent;
+const defaultCardMonth = cardMonth.textContent;
+const defaultCardYear = cardYear.textContent;
+const defaultCardCvc = cardCvc.textContent;
+
 //Functions//
-function prepareEvents() {
+const prepareEvents = () => {
   //Prepare vent listeners//
   confirmBtn.addEventListener("click", submitCardInfo);
   resetBtn.addEventListener("click", reset);
@@ -28,9 +39,9 @@ function prepareEvents() {
   inputCardName.addEventListener("keyup", addCardName);
   inputCardDate.forEach((input) => input.addEventListener("input", setExpDate));
   inputCardCvc.addEventListener("input", setCvcNumber);
-}
+};
 
-function addCardName(e) {
+const addCardName = (e) => {
   const regex = /^[a-zA-Z ]+$/;
   const inputValue = e.target.value;
   if (regex.test(inputValue)) {
@@ -39,17 +50,17 @@ function addCardName(e) {
   if (inputValue === "") {
     cardName.textContent = defaultCardName;
   }
-}
+};
 
-function addCardNumber(e) {
+const addCardNumber = (e) => {
   const inputValue = e.target.value;
   cardNumber.textContent = inputValue.replace(/\d{4}(?=.)/g, "$& ");
   if (inputValue === "") {
     cardNumber.textContent = defaultCardNumber;
   }
-}
+};
 
-function setExpDate(e) {
+const setExpDate = (e) => {
   const inputValue = e.target.value;
   const targetElement = e.target;
   if (targetElement === inputCardDate[0]) {
@@ -64,17 +75,17 @@ function setExpDate(e) {
   if (inputValue === "" && targetElement === inputCardDate[1]) {
     cardYear.textContent = defaultCardYear;
   }
-}
+};
 
-function setCvcNumber(e) {
+const setCvcNumber = (e) => {
   const inputValue = e.target.value;
   cardCvc.textContent = inputValue.replace(/\d(?=\d)/g, "$& ");
   if (inputValue === "") {
     cardCvc.textContent = defaultCardCvc;
   }
-}
+};
 
-function submitCardInfo(e) {
+const submitCardInfo = (e) => {
   e.preventDefault();
   if (inputCardName.value !== "" && inputCardName.value.match("[dW]+")) {
     inputCardName.classList.remove("user-data--active");
@@ -127,9 +138,9 @@ function submitCardInfo(e) {
     cardInputDetails.classList.add("main-content__form--active");
     submitedPage.classList.add("submited--active");
   }
-}
+};
 
-function reset(e) {
+const reset = (e) => {
   e.preventDefault();
   cardName.textContent = defaultCardName;
   cardNumber.textContent = defaultCardNumber;
@@ -144,17 +155,6 @@ function reset(e) {
   inputCardCvc.value = "";
   cardInputDetails.classList.remove("main-content__form--active");
   submitedPage.classList.remove("submited--active");
-}
+};
 
-function startingFunction() {
-  prepareEvents();
-}
-
-// Default card values //
-const defaultCardNumber = cardNumber.textContent;
-const defaultCardName = cardName.textContent;
-const defaultCardMonth = cardMonth.textContent;
-const defaultCardYear = cardYear.textContent;
-const defaultCardCvc = cardCvc.textContent;
-
-document.addEventListener("DOMContentLoaded", startingFunction);
+document.addEventListener("DOMContentLoaded", start);
