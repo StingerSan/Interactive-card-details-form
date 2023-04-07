@@ -57,7 +57,9 @@
             maxlength="30"
             required
             placeholder="e.g Jane Appleseed" />
-          <label class="error" for="card-name">Can't be blank!</label>
+          <label class="error" for="card-name"
+            >Can't be blank and letters only!</label
+          >
         </div>
         <div class="main-content__card-number-container">
           <p>CARD NUMBER</p>
@@ -122,16 +124,10 @@
           class="submited__checkmark" />
         <h1 class="submited__thanks">THANK YOU!</h1>
         <p class="submited__details">We've added your card details</p>
-        <button type="submit" class="submited__button">Continue</button>
+        <button type="submit" id="reset-btn" class="submited__button">
+          Continue
+        </button>
       </div>
     </main>
-    <!-- <footer class="footer page__footer">
-      <div class="footer__about-author">
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-          >Frontend Mentor</a
-        >. Coded by <a href="#">Your Name Here</a>.
-      </div>
-    </footer> -->
   </body>
 </html>
